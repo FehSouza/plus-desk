@@ -20,18 +20,26 @@ function App() {
               <FaSearch />
             </S.SearchButton>
           </S.SearchWrapper>
-          <Ticket date="13/04/1996" numberTicket={13444} hours={10} store="Intermezzo"></Ticket>
-          <Ticket date="20/04/2022" numberTicket={13445} hours={8} store="Lojas Torra"></Ticket>
-          <Ticket date="25/05/2022" numberTicket={13446} hours={1} store="Dona do Lar"></Ticket>
-          <Ticket date="13/04/1996" numberTicket={13444} hours={10} store="Intermezzo"></Ticket>
-          <Ticket date="20/04/2022" numberTicket={13445} hours={8} store="Lojas Torra"></Ticket>
-          <Ticket date="25/05/2022" numberTicket={13446} hours={1} store="Dona do Lar"></Ticket>
-          <Ticket date="13/04/1996" numberTicket={13444} hours={10} store="Intermezzo"></Ticket>
-          <Ticket date="20/04/2022" numberTicket={13445} hours={8} store="Lojas Torra"></Ticket>
-          <Ticket date="25/05/2022" numberTicket={13446} hours={1} store="Dona do Lar"></Ticket>
-          <Ticket date="13/04/1996" numberTicket={13444} hours={10} store="Intermezzo"></Ticket>
-          <Ticket date="20/04/2022" numberTicket={13445} hours={8} store="Lojas Torra"></Ticket>
-          <Ticket date="25/05/2022" numberTicket={13446} hours={1} store="Dona do Lar"></Ticket>
+          <S.List>
+            <Ticket date="13/04/1996" numberTicket={13444} hours={10} store="Intermezzo"></Ticket>
+            <Ticket date="20/04/2022" numberTicket={13445} hours={8} store="Lojas Torra"></Ticket>
+            <Ticket date="25/05/2022" numberTicket={13446} hours={1} store="Dona do Lar"></Ticket>
+            <Ticket date="13/04/1996" numberTicket={13444} hours={10} store="Intermezzo"></Ticket>
+            <Ticket date="20/04/2022" numberTicket={13445} hours={8} store="Lojas Torra"></Ticket>
+            <Ticket date="25/05/2022" numberTicket={13446} hours={1} store="Dona do Lar"></Ticket>
+            <Ticket date="13/04/1996" numberTicket={13444} hours={10} store="Intermezzo"></Ticket>
+            <Ticket date="20/04/2022" numberTicket={13445} hours={8} store="Lojas Torra"></Ticket>
+            <Ticket date="25/05/2022" numberTicket={13446} hours={1} store="Dona do Lar"></Ticket>
+            <Ticket date="13/04/1996" numberTicket={13444} hours={10} store="Intermezzo"></Ticket>
+            <Ticket date="20/04/2022" numberTicket={13445} hours={8} store="Lojas Torra"></Ticket>
+            <Ticket date="25/05/2022" numberTicket={13446} hours={1} store="Dona do Lar"></Ticket>
+            <Ticket date="13/04/1996" numberTicket={13444} hours={10} store="Intermezzo"></Ticket>
+            <Ticket date="20/04/2022" numberTicket={13445} hours={8} store="Lojas Torra"></Ticket>
+            <Ticket date="25/05/2022" numberTicket={13446} hours={1} store="Dona do Lar"></Ticket>
+            <Ticket date="13/04/1996" numberTicket={13444} hours={10} store="Intermezzo"></Ticket>
+            <Ticket date="20/04/2022" numberTicket={13445} hours={8} store="Lojas Torra"></Ticket>
+            <Ticket date="25/05/2022" numberTicket={13446} hours={1} store="Dona do Lar"></Ticket>
+          </S.List>
         </S.Content>
       </S.Container>
     </ThemeProvider>

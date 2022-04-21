@@ -1,20 +1,24 @@
 import { lighten } from 'polished';
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  width: 100%;
-  height: 50px;
+export const Container = styled.li`
+  flex: 1;
+  height: unset;
   border: none;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.background};
-  margin-top: 8px;
   display: flex;
   align-items: center;
-  padding: 0 16px;
+  padding: 16px;
+  margin-top: 8px;
+  margin-right: 16px;
   box-sizing: border-box;
+  flex-wrap: wrap;
+  position: relative;
   &:hover {
     background-color: ${({ theme }) => theme.colors.secondary};
     transition-duration: 250ms;
+    cursor: pointer;
     & svg {
       color: ${({ theme }) => theme.colors.primary};
       transition-duration: 250ms;
@@ -63,6 +67,11 @@ export const CopyButton = styled.button`
   background-color: transparent;
   padding: 0;
   border: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  right: 16px;
   & svg {
     color: ${({ theme }) => theme.colors.fontSecondary};
     font-size: 20px;

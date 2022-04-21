@@ -4,40 +4,44 @@ import styled from 'styled-components';
 export const Container = styled.main`
   width: 100vw;
   height: 100vh;
-  padding: 36px;
+  padding: 36px 0;
   box-sizing: border-box;
   background-color: #f8f8f8;
 `;
 
 export const Title = styled.h1`
   font-size: 20px;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0;
   color: ${({ theme }) => theme.colors.fontPrimary};
+  margin-left: 5%;
 `;
 
 export const Content = styled.section`
   margin-top: 24px;
-  width: 600px;
+  width: min(90%, 700px);
+  height: calc(100% - 60px);
   box-shadow: 0 0 6px ${({ theme }) => theme.colors.shadow};
   border: none;
   border-radius: 8px;
-  padding: 16px;
+  padding:  16px;
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.colors.background};
+  position: relative;
+  margin-left: 5%;
 `;
 
 export const SearchWrapper = styled.div`
-  width: 100%;
-  height: 38px;
+  flex: 1;
+  height: 40px;
   border: none;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.secondary};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 24px;
   border: 1px solid ${({ theme }) => theme.colors.secondary};
+  box-sizing: border-box;
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.colors.primary};
     transition-duration: 250ms;
@@ -56,9 +60,12 @@ export const SearchInput = styled.input`
   border: none;
   padding: 0 16px;
   box-sizing: border-box;
-  color: ${({ theme }) => theme.colors.fontSecondary};
+  color: ${({ theme }) => theme.colors.fontPrimary};
   font-size: 16px;
   outline: none;
+  &::placeholder{
+  color: ${({ theme }) => theme.colors.fontSecondary};
+  }
 `;
 
 export const SearchButton = styled.button`
@@ -75,4 +82,17 @@ export const SearchButton = styled.button`
       transition-duration: 250ms;
     }
   }
+`;
+
+export const List = styled.ul`
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  padding-bottom: 16px;
+  max-height: calc(100% - 64px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  list-style: none;
+  margin-top: 24px;
+  margin-right: 16px;
 `;

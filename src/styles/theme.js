@@ -5,6 +5,7 @@ const baseTheme = {
     background: '#FFFFFF',
     fontPrimary: '#111725',
     fontSecondary: '#909EB2',
+    grey: '#CED4DD',
     shadow: '#0000001A',
   },
 };
