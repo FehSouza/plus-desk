@@ -17,6 +17,9 @@ const ContainerCopied = css`
       color: ${({ theme }) => theme.colors.base};
     }
   }
+  @media (max-width: 600px) {
+    min-height: 53px;
+  }
 `;
 
 const DotTicketCopied = css`
@@ -25,23 +28,27 @@ const DotTicketCopied = css`
 `;
 
 const DateTicketCopied = css`
-  font-size: 0;
   width: 180px;
   max-width: 180px;
-  ::before {
-    content: 'Copiado com sucesso';
-    color: ${({ theme }) => theme.colors.base};
-    font-size: 16px;
+  color: ${({ theme }) => theme.colors.base};
+  font-size: 16px;
+  @media (max-width: 600px) {
+    font-size: 14px;
+    width: 180px;
+    max-width: 180px;
   }
 `;
+
 const NumberTicketCopied = css`
   transition-duration: 750ms;
   display: none;
 `;
+
 const HoursTicketCopied = css`
   transition-duration: 750ms;
   display: none;
 `;
+
 const StoreTicketCopied = css`
   transition-duration: 750ms;
   display: none;
@@ -50,7 +57,7 @@ const StoreTicketCopied = css`
 const CopyButtonCopied = css`
   & svg {
     color: ${({ theme }) => theme.colors.base};
-    font-size: 20px;
+    font-size: 18px;
     &:hover {
       cursor: pointer;
       color: ${({ theme }) => theme.colors.base};
@@ -61,9 +68,14 @@ const CopyButtonCopied = css`
   }
 `;
 
+const statusColors = {
+  past: 'error',
+  present: 'success',
+  future: 'primary',
+};
+
 export const Container = styled.li.attrs({ tabIndex: 0 })`
   transition-duration: 750ms;
-
   flex: 1;
   height: unset;
   border: none;
@@ -79,10 +91,14 @@ export const Container = styled.li.attrs({ tabIndex: 0 })`
   flex-wrap: wrap;
   position: relative;
   outline: none;
+  & svg {
+    font-size: 0;
+  }
   &:focus {
     background-color: ${({ theme }) => theme.colors.neutralLight};
     transition-duration: 250ms;
     & svg {
+      font-size: 20px;
       color: ${({ theme }) => theme.colors.primary};
       transition-duration: 250ms;
     }
@@ -92,8 +108,18 @@ export const Container = styled.li.attrs({ tabIndex: 0 })`
     transition-duration: 250ms;
     cursor: pointer;
     & svg {
+      font-size: 20px;
       color: ${({ theme }) => theme.colors.primary};
       transition-duration: 250ms;
+    }
+  }
+  @media (max-width: 600px) {
+    background-color: ${({ theme, status }) => theme.colors[statusColors[status]]}30;
+    &:focus {
+      background-color: ${({ theme, status }) => lighten(0.15, theme.colors[statusColors[status]])};
+    }
+    &:hover {
+      background-color: ${({ theme, status }) => theme.colors[statusColors[status]]}60;
     }
   }
   ${({ copied }) => copied && ContainerCopied}
@@ -103,10 +129,15 @@ export const DotTicket = styled.div`
   transition-duration: 750ms;
   width: 10px;
   height: 10px;
-  background-color: ${({ theme }) => theme.colors.primary};
   border: none;
   border-radius: 100%;
   margin-right: 16px;
+  @media (max-width: 600px) {
+    margin-right: 0px;
+    width: 0px;
+    height: 0px;
+  }
+  background-color: ${({ theme, status }) => theme.colors[statusColors[status]]};
   ${({ copied }) => copied && DotTicketCopied}
 `;
 
@@ -117,20 +148,27 @@ export const DateTicket = styled.span`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: 36px;
-  @media (max-width: 570px) {
-    margin-right: 8px;
+  @media (max-width: 600px) {
+    margin-right: 12px;
+    font-size: 14px;
+    min-width: 86px;
+    width: 86px;
   }
   ${({ copied }) => copied && DateTicketCopied}
 `;
 
 export const NumberTicket = styled.span`
   transition-duration: 750ms;
+  min-width: 46px;
   width: 46px;
   font-size: 16px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: 36px;
-  @media (max-width: 570px) {
-    margin-right: 8px;
+  @media (max-width: 600px) {
+    margin-right: 12px;
+    font-size: 14px;
+    min-width: 40px;
+    width: 40px;
   }
   ${({ copied }) => copied && NumberTicketCopied}
 `;
@@ -142,8 +180,9 @@ export const HoursTicket = styled.span`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: 36px;
-  @media (max-width: 570px) {
-    margin-right: 8px;
+  @media (max-width: 600px) {
+    margin-right: 12px;
+    font-size: 14px;
   }
   ${({ copied }) => copied && HoursTicketCopied}
 `;
@@ -153,6 +192,9 @@ export const StoreTicket = styled.span`
   font-size: 16px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: auto;
+  @media (max-width: 600px) {
+    font-size: 14px;
+  }
   ${({ copied }) => copied && StoreTicketCopied}
 `;
 
@@ -165,12 +207,11 @@ export const CopyButton = styled.div`
   height: 100%;
   position: absolute;
   right: 16px;
-  & svg {
-    color: ${({ theme }) => theme.colors.neutral};
-    font-size: 20px;
-    &:hover {
-      cursor: pointer;
-      color: ${({ theme }) => lighten(-0.125, theme.colors.primary)};
+  @media (max-width: 500px) {
+    & svg {
+      font-size: 20px;
+      color: ${({ theme }) => theme.colors.neutral};
+      transition-duration: 250ms;
     }
   }
   ${({ copied }) => copied && CopyButtonCopied}

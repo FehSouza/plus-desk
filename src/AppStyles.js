@@ -45,7 +45,6 @@ export const SearchWrapper = styled.div`
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.colors.primary};
     transition-duration: 250ms;
-
     & svg {
       color: ${({ theme }) => theme.colors.primary};
       transition-duration: 250ms;
@@ -87,6 +86,58 @@ export const SearchInput = styled.input`
   }
 `;
 
+export const Labels = styled.div`
+  display: flex;
+  padding: 16px;
+  box-sizing: border-box;
+  margin-top: 12px;
+  @media (max-width: 600px) {
+    margin-top: 0px;
+  }
+`;
+
+export const Date = styled.label`
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 26px;
+  width: 96px;
+  max-width: 96px;
+  @media (max-width: 600px) {
+    font-size: 0;
+  }
+`;
+
+export const Ticket = styled.label`
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 36px;
+  width: 46px;
+  max-width: 46px;
+  @media (max-width: 600px) {
+    font-size: 0;
+  }
+`;
+
+export const Hours = styled.label`
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 28px;
+  width: 40px;
+  max-width: 40px;
+  @media (max-width: 600px) {
+    font-size: 0;
+  }
+`;
+
+export const Store = styled.label`
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 24px;
+  @media (max-width: 600px) {
+    font-size: 0;
+  }
+`;
+
 export const List = styled.ul`
   margin: 0;
   padding: 0;
@@ -96,6 +147,5 @@ export const List = styled.ul`
   overflow-y: auto;
   box-sizing: border-box;
   list-style: none;
-  margin-top: 24px;
   margin-right: 16px;
 `;

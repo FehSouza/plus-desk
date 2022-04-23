@@ -15,7 +15,8 @@ const formatDate = (date) =>
   }).format(new Date(date));
 
 function App() {
-  const [tickets, getTickets] = useState([]);
+  const [tickets, setTickets] = useState([]);
+  const [search, setSearch] = useState('');
 
   useEffect(() => {
     const ticketsList = TICKETS.rows.map((ticket) => {
@@ -32,8 +33,17 @@ function App() {
         store,
       };
     });
-    getTickets(ticketsList);
+    setTickets(ticketsList);
   }, []);
+
+  const handleSearch = (event) => setSearch(event.target.value);
+
+  const filterSearch = tickets.filter(
+    (ticket) =>
+      ticket.date.includes(search) ||
+      String(ticket.numberTicket).includes(search) ||
+      ticket.store.toLowerCase().includes(search.toLowerCase())
+  );
 
   return (
     <ThemeProvider theme={theme.base}>
@@ -46,10 +56,16 @@ function App() {
             <S.SearchButton>
               <FaSearch />
             </S.SearchButton>
-            <S.SearchInput placeholder="Digite sua pesquisa aqui..." />
+            <S.SearchInput value={search} onChange={handleSearch} placeholder="Digite sua pesquisa aqui..." />
           </S.SearchWrapper>
+          <S.Labels>
+            <S.Date>Data entrega</S.Date>
+            <S.Ticket>Ticket</S.Ticket>
+            <S.Hours>Horas</S.Hours>
+            <S.Store>Loja</S.Store>
+          </S.Labels>
           <S.List>
-            {tickets.map((ticket) => {
+            {filterSearch.map((ticket) => {
               return (
                 <Ticket
                   key={ticket.numberTicket}
