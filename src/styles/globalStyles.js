@@ -1,3 +1,4 @@
+import { lighten } from 'polished';
 import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
@@ -12,17 +13,16 @@ body {
 
 ::-webkit-scrollbar {
   width: 12px; 
-  margin-left: 16px;
 }
 
 ::-webkit-scrollbar-track {
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  background-color: ${({theme}) => theme.colors.grey};        /* color of the tracking area */
+  border-radius: 20px; 
+  background-color: ${({ theme }) => lighten(-0.04, theme.colors.neutralLight)}; 
 }
 
-::-webkit-scrollbar-thumb {    /* color of the scroll thumb */
-  border-radius: 20px;       /* roundness of the scroll thumb */
-  border: 3px solid ${({theme}) => theme.colors.grey};  /* creates padding around scroll thumb */
-  background-color: ${({theme}) => theme.colors.fontSecondary};        /* color of the tracking area */
+::-webkit-scrollbar-thumb {  
+  border-radius: 20px;    
+  background-color: ${({ theme }) => theme.colors.neutral}; 
+  border: 3px solid ${({ theme }) => lighten(-0.04, theme.colors.neutralLight)};
 }
 `;

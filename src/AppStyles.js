@@ -6,14 +6,14 @@ export const Container = styled.main`
   height: 100vh;
   padding: 36px 0;
   box-sizing: border-box;
-  background-color: #f8f8f8;
+  background-color: ${({ theme }) => theme.colors.base};
 `;
 
 export const Title = styled.h1`
   font-size: 20px;
   font-weight: 600;
   margin: 0;
-  color: ${({ theme }) => theme.colors.fontPrimary};
+  color: ${({ theme }) => theme.colors.accent};
   margin-left: 5%;
 `;
 
@@ -24,9 +24,9 @@ export const Content = styled.section`
   box-shadow: 0 0 6px ${({ theme }) => theme.colors.shadow};
   border: none;
   border-radius: 8px;
-  padding:  16px;
+  padding: 16px;
   box-sizing: border-box;
-  background-color: ${({ theme }) => theme.colors.background};
+  background-color: ${({ theme }) => theme.colors.white};
   position: relative;
   margin-left: 5%;
 `;
@@ -36,11 +36,11 @@ export const SearchWrapper = styled.div`
   height: 40px;
   border: none;
   border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.secondary};
+  background-color: ${({ theme }) => theme.colors.neutralLight};
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border: 1px solid ${({ theme }) => theme.colors.secondary};
+  border: 1px solid ${({ theme }) => theme.colors.neutralLight};
   box-sizing: border-box;
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.colors.primary};
@@ -53,34 +53,37 @@ export const SearchWrapper = styled.div`
   }
 `;
 
-export const SearchInput = styled.input`
-  background-color: transparent;
+export const SearchButton = styled.button`
   height: 100%;
-  width: 100%;
+  background-color: transparent;
   border: none;
   padding: 0 16px;
   box-sizing: border-box;
-  color: ${({ theme }) => theme.colors.fontPrimary};
-  font-size: 16px;
   outline: none;
-  &::placeholder{
-  color: ${({ theme }) => theme.colors.fontSecondary};
-  }
-`;
-
-export const SearchButton = styled.button`
-  background-color: transparent;
-  height: 100%;
-  width: 40px;
-  border: none;
   & svg {
-    color: ${({ theme }) => theme.colors.fontSecondary};
+    color: ${({ theme }) => theme.colors.neutral};
     font-size: 18px;
     &:hover {
       cursor: pointer;
-      color: ${({ theme }) => lighten(-0.125, theme.colors.primary)};
+      color: ${({ theme }) => lighten(-0.15, theme.colors.primary)};
       transition-duration: 250ms;
     }
+    &:focus {
+      color: ${({ theme }) => lighten(-0.15, theme.colors.primary)};
+    }
+  }
+`;
+
+export const SearchInput = styled.input`
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  color: ${({ theme }) => theme.colors.accent};
+  font-size: 16px;
+  outline: none;
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.neutral};
   }
 `;
 
