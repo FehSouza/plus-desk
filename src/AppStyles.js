@@ -1,4 +1,3 @@
-import { lighten } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.main`
@@ -10,142 +9,17 @@ export const Container = styled.main`
 `;
 
 export const Title = styled.h1`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 600;
   margin: 0;
   color: ${({ theme }) => theme.colors.accent};
-  margin-left: 5%;
+  margin-left: 4%;
 `;
 
-export const Content = styled.section`
+export const Content = styled.div`
+  margin: 0 4%;
   margin-top: 24px;
-  width: min(90%, 700px);
+  width: calc(100% - 8%);
   height: calc(100% - 60px);
-  box-shadow: 0 0 6px ${({ theme }) => theme.colors.shadow};
-  border: none;
-  border-radius: 8px;
-  padding: 16px;
-  box-sizing: border-box;
-  background-color: ${({ theme }) => theme.colors.white};
-  position: relative;
-  margin-left: 5%;
-`;
-
-export const SearchWrapper = styled.div`
-  flex: 1;
-  height: 40px;
-  border: none;
-  border-radius: 8px;
-  background-color: ${({ theme }) => theme.colors.neutralLight};
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  border: 1px solid ${({ theme }) => theme.colors.neutralLight};
-  box-sizing: border-box;
-  &:focus-within {
-    border: 1px solid ${({ theme }) => theme.colors.primary};
-    transition-duration: 250ms;
-    & svg {
-      color: ${({ theme }) => theme.colors.primary};
-      transition-duration: 250ms;
-    }
-  }
-`;
-
-export const SearchButton = styled.button`
-  height: 100%;
-  background-color: transparent;
-  border: none;
-  padding: 0 16px;
-  box-sizing: border-box;
-  outline: none;
-  & svg {
-    color: ${({ theme }) => theme.colors.neutral};
-    font-size: 18px;
-    &:hover {
-      cursor: pointer;
-      color: ${({ theme }) => lighten(-0.15, theme.colors.primary)};
-      transition-duration: 250ms;
-    }
-    &:focus {
-      color: ${({ theme }) => lighten(-0.15, theme.colors.primary)};
-    }
-  }
-`;
-
-export const SearchInput = styled.input`
-  height: 100%;
-  width: 100%;
-  background-color: transparent;
-  border: none;
-  color: ${({ theme }) => theme.colors.accent};
-  font-size: 16px;
-  outline: none;
-  &::placeholder {
-    color: ${({ theme }) => theme.colors.neutral};
-  }
-`;
-
-export const Labels = styled.div`
-  display: flex;
-  padding: 16px;
-  box-sizing: border-box;
-  margin-top: 12px;
-  @media (max-width: 600px) {
-    margin-top: 0px;
-  }
-`;
-
-export const Date = styled.label`
-  font-size: 13px;
-  font-weight: 600;
-  margin-left: 26px;
-  width: 96px;
-  max-width: 96px;
-  @media (max-width: 600px) {
-    font-size: 0;
-  }
-`;
-
-export const Ticket = styled.label`
-  font-size: 13px;
-  font-weight: 600;
-  margin-left: 36px;
-  width: 46px;
-  max-width: 46px;
-  @media (max-width: 600px) {
-    font-size: 0;
-  }
-`;
-
-export const Hours = styled.label`
-  font-size: 13px;
-  font-weight: 600;
-  margin-left: 28px;
-  width: 40px;
-  max-width: 40px;
-  @media (max-width: 600px) {
-    font-size: 0;
-  }
-`;
-
-export const Store = styled.label`
-  font-size: 13px;
-  font-weight: 600;
-  margin-left: 24px;
-  @media (max-width: 600px) {
-    font-size: 0;
-  }
-`;
-
-export const List = styled.ul`
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  padding-bottom: 16px;
-  max-height: calc(100% - 64px);
-  overflow-y: auto;
-  box-sizing: border-box;
-  list-style: none;
-  margin-right: 16px;
 `;

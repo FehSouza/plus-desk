@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
 import { ThemeProvider } from 'styled-components';
 import * as S from './AppStyles';
-import { Ticket } from './components';
+import { InfoTicket, TicketsList } from './components';
+import { InformationProvider } from './context/useInformation';
 import { TICKETS } from './mock/tickets';
 import { GlobalStyle } from './styles/globalStyles';
 import { theme } from './styles/theme';
@@ -11,7 +11,6 @@ const formatDate = (date) =>
   Intl.DateTimeFormat('pt-BR', {
     month: '2-digit',
     day: '2-digit',
-    year: 'numeric',
   }).format(new Date(date));
 
 function App() {
@@ -25,12 +24,14 @@ function App() {
       const hours = ticket[360023257414];
       const requester = TICKETS.users.find((user) => user.id === ticket.requester_id);
       const [store] = requester.name.split(' - ');
+      const subject = ticket.subject;
 
       return {
         date,
         numberTicket,
         hours,
         store,
+        subject,
       };
     });
     setTickets(ticketsList);
@@ -52,31 +53,10 @@ function App() {
       <S.Container>
         <S.Title>Agendamentos - DEV #07</S.Title>
         <S.Content>
-          <S.SearchWrapper>
-            <S.SearchButton>
-              <FaSearch />
-            </S.SearchButton>
-            <S.SearchInput value={search} onChange={handleSearch} placeholder="Digite sua pesquisa aqui..." />
-          </S.SearchWrapper>
-          <S.Labels>
-            <S.Date>Data entrega</S.Date>
-            <S.Ticket>Ticket</S.Ticket>
-            <S.Hours>Horas</S.Hours>
-            <S.Store>Loja</S.Store>
-          </S.Labels>
-          <S.List>
-            {filterSearch.map((ticket) => {
-              return (
-                <Ticket
-                  key={ticket.numberTicket}
-                  date={ticket.date}
-                  numberTicket={ticket.numberTicket}
-                  hours={ticket.hours}
-                  store={ticket.store}
-                ></Ticket>
-              );
-            })}
-          </S.List>
+          <InformationProvider>
+            <TicketsList search={search} handleSearch={handleSearch} filterSearch={filterSearch} />
+            <InfoTicket />
+          </InformationProvider>
         </S.Content>
       </S.Container>
     </ThemeProvider>

@@ -17,7 +17,7 @@ const ContainerCopied = css`
       color: ${({ theme }) => theme.colors.base};
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     min-height: 53px;
   }
 `;
@@ -31,8 +31,8 @@ const DateTicketCopied = css`
   width: 180px;
   max-width: 180px;
   color: ${({ theme }) => theme.colors.base};
-  font-size: 16px;
-  @media (max-width: 600px) {
+  font-size: 14px;
+  @media (max-width: 700px) {
     font-size: 14px;
     width: 180px;
     max-width: 180px;
@@ -83,8 +83,8 @@ export const Container = styled.li.attrs({ tabIndex: 0 })`
   background-color: ${({ theme }) => theme.colors.white};
   display: flex;
   align-items: center;
-  padding: 16px;
-  padding-right: 44px;
+  padding: 12px;
+  padding-right: 40px;
   margin-top: 8px;
   margin-right: 16px;
   box-sizing: border-box;
@@ -113,7 +113,7 @@ export const Container = styled.li.attrs({ tabIndex: 0 })`
       transition-duration: 250ms;
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 700px) {
     background-color: ${({ theme, status }) => theme.colors[statusColors[status]]}30;
     &:focus {
       background-color: ${({ theme, status }) => lighten(0.15, theme.colors[statusColors[status]])};
@@ -127,12 +127,12 @@ export const Container = styled.li.attrs({ tabIndex: 0 })`
 
 export const DotTicket = styled.div`
   transition-duration: 750ms;
-  width: 10px;
-  height: 10px;
+  width: 7px;
+  height: 7px;
   border: none;
   border-radius: 100%;
-  margin-right: 16px;
-  @media (max-width: 600px) {
+  margin-right: 12px;
+  @media (max-width: 700px) {
     margin-right: 0px;
     width: 0px;
     height: 0px;
@@ -142,61 +142,72 @@ export const DotTicket = styled.div`
 `;
 
 export const DateTicket = styled.span`
-  min-width: 96px;
+  min-width: 48px;
   width: 100%;
-  max-width: 96px;
-  font-size: 16px;
+  max-width: 48px;
+  font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
-  margin-right: 36px;
-  @media (max-width: 600px) {
+  margin-right: 18px;
+  @media (max-width: 700px) {
     margin-right: 12px;
-    font-size: 14px;
-    min-width: 86px;
-    width: 86px;
+    /* min-width: 86px;
+    width: 86px; */
   }
   ${({ copied }) => copied && DateTicketCopied}
 `;
 
 export const NumberTicket = styled.span`
   transition-duration: 750ms;
-  min-width: 46px;
-  width: 46px;
-  font-size: 16px;
+  min-width: 40px;
+  width: 40px;
+  font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
-  margin-right: 36px;
-  @media (max-width: 600px) {
+  margin-right: 18px;
+  @media (max-width: 700px) {
     margin-right: 12px;
-    font-size: 14px;
-    min-width: 40px;
-    width: 40px;
   }
   ${({ copied }) => copied && NumberTicketCopied}
 `;
 
 export const HoursTicket = styled.span`
   transition-duration: 750ms;
-  width: 18px;
-  text-align: end;
-  font-size: 16px;
+  min-width: 40px;
+  max-width: 40px;
+  text-align: center;
+  font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
-  margin-right: 36px;
-  @media (max-width: 600px) {
+  margin-right: 18px;
+  @media (max-width: 700px) {
     margin-right: 12px;
-    font-size: 14px;
   }
   ${({ copied }) => copied && HoursTicketCopied}
 `;
 
 export const StoreTicket = styled.span`
+min-width: 140px;
+  width: 100%;
+  max-width: 140px;
   transition-duration: 750ms;
-  font-size: 16px;
+  font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
-  margin-right: auto;
-  @media (max-width: 600px) {
-    font-size: 14px;
+  margin-right: 18px;
+  @media (max-width: 700px) {
+    margin-right: 12px;
   }
   ${({ copied }) => copied && StoreTicketCopied}
 `;
+
+export const SubjectTicket = styled.span`
+min-width: 170px;
+  width: 100%;
+  max-width: 170px;
+  transition-duration: 750ms;
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.accent};
+  margin-right: auto;
+  
+  ${({ copied }) => copied && StoreTicketCopied}
+`
 
 export const CopyButton = styled.div`
   background-color: transparent;

@@ -3,7 +3,9 @@ import axios from 'axios';
 export const api = axios.create({
   baseURL: 'https://agenciaeplus.zendesk.com/api/v2/',
   headers: {
-    'Content-Type': 'application/json', 
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': true,
+    'Accept': 'application/json',
+    'Authorization': `Bearer ${process.env.REACT_APP_API_TOKEN_OAUTH}`
   },
-  'Authorization': 'Basic PPuf66XSPuDZZt9i2qz6MT74OSROvi3G84vNjmrbCbs/+sYwQykesi1CvuhcNOkjaPetTFo1XXljFTyQ9CXD0w=='
 });
