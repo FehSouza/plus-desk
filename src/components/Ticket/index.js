@@ -19,15 +19,15 @@ const verifyDate = (date) => {
   return 'past';
 };
 
-export const Ticket = ({ date, numberTicket, hours, store, subject }) => {
+export const Ticket = ({ date, ticketId, hours, store, subject }) => {
   const [copy, setCopy] = useState(false);
   const { openInformation, setOpenInformation } = useInformation();
   const [, numTicket] = openInformation;
 
-  const handleCopy = (numberTicket) => {
-    let text = `yarn dev -o ${numberTicket}`;
+  const handleCopy = (ticketId) => {
+    let text = `yarn dev -o ${ticketId}`;
     navigator.clipboard.writeText(text);
-    numTicket !== numberTicket ? setOpenInformation([true, numberTicket]) : setOpenInformation([false, 0]);
+    numTicket !== ticketId ? setOpenInformation([true, ticketId]) : setOpenInformation([false, 0]);
     setCopy(true);
     setTimeout(setCopy, 1000, false);
   }; 
@@ -36,10 +36,10 @@ export const Ticket = ({ date, numberTicket, hours, store, subject }) => {
   const textDateTicket = copy ? 'Copiado com sucesso' : date;
 
   return (
-    <S.Container status={status} copied={copy} onClick={() => handleCopy(numberTicket)}>
+    <S.Container status={status} copied={copy} onClick={() => handleCopy(ticketId)}>
       <S.DotTicket status={status} copied={copy} />
       <S.DateTicket copied={copy}>{textDateTicket}</S.DateTicket>
-      <S.NumberTicket copied={copy}>{numberTicket}</S.NumberTicket>
+      <S.NumberTicket copied={copy}>{ticketId}</S.NumberTicket>
       <S.HoursTicket copied={copy}>{String(hours).padStart(2, '0')}</S.HoursTicket>
       <S.StoreTicket copied={copy}>{store}</S.StoreTicket>
       <S.SubjectTicket copied={copy}>{subject}</S.SubjectTicket>

@@ -22,9 +22,9 @@ export const TicketsList = ({ search, handleSearch, filterSearch }) => {
         {filterSearch.map((ticket) => {
           return (
             <Ticket
-              key={ticket.numberTicket}
+              key={ticket.ticketId}
               date={ticket.date}
-              numberTicket={ticket.numberTicket}
+              ticketId={ticket.ticketId}
               hours={ticket.hours}
               store={ticket.store}
               subject={ticket.subject}
