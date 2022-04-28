@@ -25,7 +25,7 @@ export const TicketsList = ({ search, handleSearch, filterSearch }) => {
               key={ticket.ticketId}
               date={ticket.date}
               ticketId={ticket.ticketId}
-              hours={ticket.hours}
+              hoursFormatted={ticket.hoursFormatted}
               store={ticket.store}
               subject={ticket.subject}
             ></Ticket>

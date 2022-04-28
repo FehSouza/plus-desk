@@ -9,7 +9,7 @@ export const Container = styled.main`
 `;
 
 export const Title = styled.h1`
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 600;
   margin: 0;
   color: ${({ theme }) => theme.colors.accent};
