@@ -2,7 +2,7 @@ import { lighten } from 'polished';
 import styled from 'styled-components'
 
 export const Container = styled.section`
-  width: min(92%, 700px);
+  width: min(92%, 800px);
   height: 100%;
   box-shadow: 0 0 6px ${({ theme }) => theme.colors.shadow};
   border: none;
@@ -82,8 +82,8 @@ export const Date = styled.label`
   font-size: 12px;
   font-weight: 600;
   margin-left: 19px;
-  width: 48px;
-  max-width: 48px;
+  width: 90px;
+  max-width: 90px;
   @media (max-width: 700px) {
     margin-left: 0;
   }
@@ -123,8 +123,8 @@ export const Hours = styled.label`
 `;
 
 export const Store = styled.label`
-  width: 140px;
-  max-width: 140px;
+  width: 160px;
+  max-width: 160px;
   font-size: 12px;
   font-weight: 600;
   margin-left: 18px;
@@ -137,8 +137,8 @@ export const Store = styled.label`
 `;
 
 export const Subject = styled.label`
-  width: 170px;
-  max-width: 170px;
+  width: 220px;
+  max-width: 220px;
   font-size: 12px;
   font-weight: 600;
   margin-left: 18px;

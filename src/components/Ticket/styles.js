@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 
 const ContainerCopied = css`
   transition-duration: 750ms;
-  min-height: 57px;
+  min-height: 45px;
   background-color: ${({ theme }) => theme.colors.success};
   &:focus {
     background-color: ${({ theme }) => theme.colors.success};
@@ -142,9 +142,9 @@ export const DotTicket = styled.div`
 `;
 
 export const DateTicket = styled.span`
-  min-width: 48px;
+  min-width: 90px;
   width: 100%;
-  max-width: 48px;
+  max-width: 90px;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: 18px;
@@ -184,9 +184,9 @@ export const HoursTicket = styled.span`
 `;
 
 export const StoreTicket = styled.span`
-min-width: 140px;
+min-width: 160px;
   width: 100%;
-  max-width: 140px;
+  max-width: 160px;
   transition-duration: 750ms;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
@@ -198,9 +198,9 @@ min-width: 140px;
 `;
 
 export const SubjectTicket = styled.span`
-min-width: 170px;
+min-width: 220px;
   width: 100%;
-  max-width: 170px;
+  max-width: 220px;
   transition-duration: 750ms;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};

@@ -19,6 +19,7 @@ const getCollaborator = async (collaborator) => {
       Authorization: process.env.REACT_APP_TOKEN,
     },
   });
+  console.log(data)
   return data;
 };
 
@@ -94,17 +95,17 @@ export const Home = () => {
         })
       );
     };
-    requestInfo(dictionary.Dev2);
+    requestInfo(dictionary.Dev7);
   }, []);
 
   const handleSearch = (event) => setSearch(event.target.value);
 
   const filterSearch = tickets.filter(
     (ticket) =>
-      ticket.date.includes(search) ||
-      String(ticket.ticketId).includes(search) ||
-      ticket.store.toLowerCase().includes(search.toLowerCase()) ||
-      ticket.subject.toLowerCase().includes(search.toLowerCase())
+      ticket.date?.includes(search) ||
+      String(ticket.ticketId)?.includes(search) ||
+      ticket.store.toLowerCase()?.includes(search.toLowerCase()) ||
+      ticket.subject.toLowerCase()?.includes(search.toLowerCase())
   );
   return (
     <S.Container>
