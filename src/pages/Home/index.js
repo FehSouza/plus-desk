@@ -19,7 +19,6 @@ const getCollaborator = async (collaborator) => {
       Authorization: process.env.REACT_APP_TOKEN,
     },
   });
-  console.log(data)
   return data;
 };
 

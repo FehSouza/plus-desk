@@ -28,8 +28,8 @@ const DotTicketCopied = css`
 `;
 
 const DateTicketCopied = css`
-  width: 180px;
-  max-width: 180px;
+  width: 240px;
+  max-width: 240px;
   color: ${({ theme }) => theme.colors.base};
   font-size: 14px;
   @media (max-width: 700px) {
@@ -54,7 +54,7 @@ const StoreTicketCopied = css`
   display: none;
 `;
 
-const CopyButtonCopied = css`
+const ButtonCopied = css`
   & svg {
     color: ${({ theme }) => theme.colors.base};
     font-size: 18px;
@@ -122,7 +122,7 @@ export const Container = styled.li.attrs({ tabIndex: 0 })`
       background-color: ${({ theme, status }) => theme.colors[statusColors[status]]}60;
     }
   }
-  ${({ copied }) => copied && ContainerCopied}
+  ${({ copied, committed }) => (copied || committed) && ContainerCopied}
 `;
 
 export const DotTicket = styled.div`
@@ -138,7 +138,7 @@ export const DotTicket = styled.div`
     height: 0px;
   }
   background-color: ${({ theme, status }) => theme.colors[statusColors[status]]};
-  ${({ copied }) => copied && DotTicketCopied}
+  ${({ copied, committed }) => (copied || committed) && DotTicketCopied}
 `;
 
 export const DateTicket = styled.span`
@@ -150,10 +150,8 @@ export const DateTicket = styled.span`
   margin-right: 18px;
   @media (max-width: 700px) {
     margin-right: 12px;
-    /* min-width: 86px;
-    width: 86px; */
   }
-  ${({ copied }) => copied && DateTicketCopied}
+  ${({ copied, committed }) => (copied || committed) && DateTicketCopied}
 `;
 
 export const NumberTicket = styled.span`
@@ -166,7 +164,7 @@ export const NumberTicket = styled.span`
   @media (max-width: 700px) {
     margin-right: 12px;
   }
-  ${({ copied }) => copied && NumberTicketCopied}
+  ${({ copied, committed }) => (copied || committed) && NumberTicketCopied}
 `;
 
 export const HoursTicket = styled.span`
@@ -180,11 +178,11 @@ export const HoursTicket = styled.span`
   @media (max-width: 700px) {
     margin-right: 12px;
   }
-  ${({ copied }) => copied && HoursTicketCopied}
+  ${({ copied, committed }) => (copied || committed) && HoursTicketCopied}
 `;
 
 export const StoreTicket = styled.span`
-min-width: 160px;
+  min-width: 160px;
   width: 100%;
   max-width: 160px;
   transition-duration: 750ms;
@@ -194,22 +192,41 @@ min-width: 160px;
   @media (max-width: 700px) {
     margin-right: 12px;
   }
-  ${({ copied }) => copied && StoreTicketCopied}
+  ${({ copied, committed }) => (copied || committed) && StoreTicketCopied}
 `;
 
 export const SubjectTicket = styled.span`
-min-width: 220px;
+  min-width: 220px;
   width: 100%;
   max-width: 220px;
   transition-duration: 750ms;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: auto;
-  
-  ${({ copied }) => copied && StoreTicketCopied}
-`
+
+  ${({ copied, committed }) => (copied || committed) && StoreTicketCopied}
+`;
 
 export const CopyButton = styled.div`
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  right: 52px;
+  @media (max-width: 500px) {
+    & svg {
+      font-size: 20px;
+      color: ${({ theme }) => theme.colors.neutral};
+      transition-duration: 250ms;
+    }
+  }
+  ${({ copied }) => copied && ButtonCopied}
+`;
+
+export const GitCommitButton = styled.div`
   background-color: transparent;
   padding: 0;
   border: none;
@@ -225,5 +242,5 @@ export const CopyButton = styled.div`
       transition-duration: 250ms;
     }
   }
-  ${({ copied }) => copied && CopyButtonCopied}
+  ${({ copied }) => copied && ButtonCopied}
 `;
