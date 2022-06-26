@@ -9,7 +9,7 @@ export const Container = styled.div`
 
 export const Label = styled.label`
   font-size: 16px;
-  color: #111725;
+  color: ${({ theme }) => theme.colors.accent};
 `;
 
 export const Select = styled.select`
@@ -18,10 +18,10 @@ export const Select = styled.select`
   border-radius: 8px;
   padding: 0 8px;
   font-size: 16px;
-  color: #111725;
+  color: ${({ theme }) => theme.colors.accent};
 `;
 
 export const Option = styled.option`
   font-size: 16px;
-  color: #111725;
+  color: ${({ theme }) => theme.colors.accent};
 `;

@@ -1,5 +1,5 @@
 import { lighten } from 'polished';
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const Container = styled.section`
   width: min(92%, 800px);
@@ -155,18 +155,22 @@ export const List = styled.ul`
   padding: 0;
   width: 100%;
   padding-bottom: 16px;
-  max-height: calc(100% - 64px);
+  max-height: calc(100% - 94px);
   overflow-y: auto;
   box-sizing: border-box;
   list-style: none;
   margin-right: 16px;
+
+  @media (max-width: 600px) {
+    max-height: calc(100% - 64px);
+  }
 `;
 
 export const NoTicket = styled.span`
-display: block;
-width: 100%;
-text-align: center;
-margin-top: 32px;
-font-size: 14px;
-    color: #111725;
-`
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 32px;
+  font-size: 14px;
+  color: #111725;
+`;

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
-import { MdOutlineContentCopy } from 'react-icons/md';
 import { GoGitCommit } from 'react-icons/go';
+import { MdOutlineContentCopy } from 'react-icons/md';
 import { formatDate } from '../../utils';
 import * as S from './styles';
 
@@ -29,7 +29,7 @@ export const Ticket = ({ date, ticketId, hours, store, subject }) => {
     const text = `yarn dev -o ${ticketId}`;
     navigator.clipboard.writeText(text);
     setCopy(true);
-    setTimeout(setCopy, 1000, false);
+    setTimeout(setCopy, 1250, false);
   };
 
   const handleCommit = ({ ticketId, event }) => {
@@ -38,43 +38,30 @@ export const Ticket = ({ date, ticketId, hours, store, subject }) => {
     const text = `git add . && git commit -m '${subject} - Chamado ${ticketId}'`;
     navigator.clipboard.writeText(text);
     setCommit(true);
-    setTimeout(setCommit, 1000, false);
+    setTimeout(setCommit, 1250, false);
   };
 
   const status = verifyDate(date);
 
-  const textDateTicket = copy
-    ? 'Yarn dev copiado com sucesso'
-    : commit
-    ? 'Commit copiado com sucesso'
-    : formatDate(date);
+  const textDateTicket = copy ? 'Yarn dev copiado com sucesso' : 'Commit copiado com sucesso';
 
   const hoursTicket = hours ? hours : '0';
 
   return (
-    <S.Container status={status} copied={copy} committed={commit} onClick={() => handleCopy(ticketId)}>
-      <S.DotTicket status={status} copied={copy} committed={commit} />
-      <S.DateTicket copied={copy} committed={commit}>
-        {textDateTicket}
-      </S.DateTicket>
-      <S.NumberTicket copied={copy} committed={commit}>
-        {ticketId}
-      </S.NumberTicket>
-      <S.HoursTicket copied={copy} committed={commit}>
-        {hoursTicket}
-      </S.HoursTicket>
-      <S.StoreTicket copied={copy} committed={commit}>
-        {store}
-      </S.StoreTicket>
-      <S.SubjectTicket copied={copy} committed={commit}>
-        {subject}
-      </S.SubjectTicket>
-      <S.CopyButton copied={copy} committed={commit}>
-        {commit ? '' : copy ? <FaCheck /> : <MdOutlineContentCopy />}
-      </S.CopyButton>
-      <S.GitCommitButton copied={copy} committed={commit} onClick={(event) => handleCommit({ ticketId, event })}>
-        {copy ? '' : commit ? <FaCheck /> : <GoGitCommit />}
-      </S.GitCommitButton>
+    <S.Container status={status} onClick={() => handleCopy(ticketId)}>
+      <S.ContainerCopied copied={copy} committed={commit}>
+        <S.CopiedText>{textDateTicket}</S.CopiedText>
+        <FaCheck />
+      </S.ContainerCopied>
+
+      <S.DotTicket status={status} />
+      <S.DateTicket>{formatDate(date)}</S.DateTicket>
+      <S.NumberTicket>{ticketId}</S.NumberTicket>
+      <S.HoursTicket>{hoursTicket}</S.HoursTicket>
+      <S.StoreTicket>{store}</S.StoreTicket>
+      <S.SubjectTicket>{subject}</S.SubjectTicket>
+      <S.CopyButton>{<MdOutlineContentCopy />}</S.CopyButton>
+      <S.GitCommitButton onClick={(event) => handleCommit({ ticketId, event })}>{<GoGitCommit />}</S.GitCommitButton>
     </S.Container>
   );
 };

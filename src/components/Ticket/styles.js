@@ -1,72 +1,4 @@
-import { lighten } from 'polished';
-import styled, { css } from 'styled-components';
-
-const ContainerCopied = css`
-  transition-duration: 750ms;
-  min-height: 45px;
-  background-color: ${({ theme }) => theme.colors.success};
-  &:focus {
-    background-color: ${({ theme }) => theme.colors.success};
-    & svg {
-      color: ${({ theme }) => theme.colors.base};
-    }
-  }
-  &:hover {
-    background-color: ${({ theme }) => theme.colors.success};
-    & svg {
-      color: ${({ theme }) => theme.colors.base};
-    }
-  }
-  @media (max-width: 700px) {
-    min-height: 53px;
-  }
-`;
-
-const DotTicketCopied = css`
-  transition-duration: 750ms;
-  background-color: ${({ theme }) => theme.colors.base};
-`;
-
-const DateTicketCopied = css`
-  width: 240px;
-  max-width: 240px;
-  color: ${({ theme }) => theme.colors.base};
-  font-size: 14px;
-  @media (max-width: 700px) {
-    font-size: 14px;
-    width: 180px;
-    max-width: 180px;
-  }
-`;
-
-const NumberTicketCopied = css`
-  transition-duration: 750ms;
-  display: none;
-`;
-
-const HoursTicketCopied = css`
-  transition-duration: 750ms;
-  display: none;
-`;
-
-const StoreTicketCopied = css`
-  transition-duration: 750ms;
-  display: none;
-`;
-
-const ButtonCopied = css`
-  & svg {
-    color: ${({ theme }) => theme.colors.base};
-    font-size: 18px;
-    &:hover {
-      cursor: pointer;
-      color: ${({ theme }) => theme.colors.base};
-    }
-    &:focus {
-      color: ${({ theme }) => theme.colors.base};
-    }
-  }
-`;
+import styled from 'styled-components';
 
 const statusColors = {
   past: 'error',
@@ -75,7 +7,6 @@ const statusColors = {
 };
 
 export const Container = styled.li.attrs({ tabIndex: 0 })`
-  transition-duration: 750ms;
   flex: 1;
   height: unset;
   border: none;
@@ -94,35 +25,31 @@ export const Container = styled.li.attrs({ tabIndex: 0 })`
   & svg {
     font-size: 0;
   }
-  &:focus {
-    background-color: ${({ theme }) => theme.colors.neutralLight};
-    transition-duration: 250ms;
-    & svg {
-      font-size: 20px;
-      color: ${({ theme }) => theme.colors.primary};
-      transition-duration: 250ms;
-    }
-  }
   &:hover {
     background-color: ${({ theme }) => theme.colors.neutralLight};
     transition-duration: 250ms;
     cursor: pointer;
     & svg {
-      font-size: 20px;
+      font-size: 18px;
+      color: ${({ theme }) => theme.colors.primary};
+      transition-duration: 250ms;
+    }
+  }
+  &:focus {
+    background-color: ${({ theme }) => theme.colors.neutralLight};
+    transition-duration: 250ms;
+    & svg {
+      font-size: 18px;
       color: ${({ theme }) => theme.colors.primary};
       transition-duration: 250ms;
     }
   }
   @media (max-width: 700px) {
     background-color: ${({ theme, status }) => theme.colors[statusColors[status]]}30;
-    &:focus {
-      background-color: ${({ theme, status }) => lighten(0.15, theme.colors[statusColors[status]])};
-    }
     &:hover {
       background-color: ${({ theme, status }) => theme.colors[statusColors[status]]}60;
     }
   }
-  ${({ copied, committed }) => (copied || committed) && ContainerCopied}
 `;
 
 export const DotTicket = styled.div`
@@ -132,18 +59,16 @@ export const DotTicket = styled.div`
   border: none;
   border-radius: 100%;
   margin-right: 12px;
+  background-color: ${({ theme, status }) => theme.colors[statusColors[status]]};
   @media (max-width: 700px) {
     margin-right: 0px;
     width: 0px;
     height: 0px;
   }
-  background-color: ${({ theme, status }) => theme.colors[statusColors[status]]};
-  ${({ copied, committed }) => (copied || committed) && DotTicketCopied}
 `;
 
 export const DateTicket = styled.span`
   min-width: 90px;
-  width: 100%;
   max-width: 90px;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
@@ -151,7 +76,6 @@ export const DateTicket = styled.span`
   @media (max-width: 700px) {
     margin-right: 12px;
   }
-  ${({ copied, committed }) => (copied || committed) && DateTicketCopied}
 `;
 
 export const NumberTicket = styled.span`
@@ -164,7 +88,6 @@ export const NumberTicket = styled.span`
   @media (max-width: 700px) {
     margin-right: 12px;
   }
-  ${({ copied, committed }) => (copied || committed) && NumberTicketCopied}
 `;
 
 export const HoursTicket = styled.span`
@@ -178,12 +101,10 @@ export const HoursTicket = styled.span`
   @media (max-width: 700px) {
     margin-right: 12px;
   }
-  ${({ copied, committed }) => (copied || committed) && HoursTicketCopied}
 `;
 
 export const StoreTicket = styled.span`
   min-width: 160px;
-  width: 100%;
   max-width: 160px;
   transition-duration: 750ms;
   font-size: 14px;
@@ -192,19 +113,15 @@ export const StoreTicket = styled.span`
   @media (max-width: 700px) {
     margin-right: 12px;
   }
-  ${({ copied, committed }) => (copied || committed) && StoreTicketCopied}
 `;
 
 export const SubjectTicket = styled.span`
-  min-width: 220px;
-  width: 100%;
-  max-width: 220px;
+  min-width: 210px;
+  max-width: 210px;
   transition-duration: 750ms;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: auto;
-
-  ${({ copied, committed }) => (copied || committed) && StoreTicketCopied}
 `;
 
 export const CopyButton = styled.div`
@@ -215,15 +132,14 @@ export const CopyButton = styled.div`
   align-items: center;
   height: 100%;
   position: absolute;
-  right: 52px;
+  right: 40px;
   @media (max-width: 500px) {
     & svg {
-      font-size: 20px;
+      font-size: 18px;
       color: ${({ theme }) => theme.colors.neutral};
       transition-duration: 250ms;
     }
   }
-  ${({ copied }) => copied && ButtonCopied}
 `;
 
 export const GitCommitButton = styled.div`
@@ -234,13 +150,42 @@ export const GitCommitButton = styled.div`
   align-items: center;
   height: 100%;
   position: absolute;
-  right: 16px;
+  right: 12px;
   @media (max-width: 500px) {
     & svg {
-      font-size: 20px;
+      font-size: 18px;
       color: ${({ theme }) => theme.colors.neutral};
       transition-duration: 250ms;
     }
   }
-  ${({ copied }) => copied && ButtonCopied}
+`;
+
+export const ContainerCopied = styled.div`
+  z-index: ${({ copied, committed }) => (copied || committed ? 2 : -1)};
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 8px;
+  background-color: ${({ theme }) => theme.colors.success};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px;
+  box-sizing: border-box;
+  margin-left: -12px;
+  & svg {
+    color: ${({ theme }) => theme.colors.white};
+  }
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.success};
+    & svg {
+      color: ${({ theme }) => theme.colors.white};
+    }
+  }
+`;
+
+export const CopiedText = styled.span`
+  font-size: 14px;
+  color: ${({ theme }) => theme.colors.white};
 `;
