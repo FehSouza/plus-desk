@@ -21,7 +21,7 @@ const verifyDate = (date) => {
   return 'past';
 };
 
-export const Ticket = ({ date, ticketId, hoursFormatted, store, subject }) => {
+export const Ticket = ({ date, ticketId, hours, store, subject }) => {
   const [copy, setCopy] = useState(false);
   const [commit, setCommit] = useState(false);
 
@@ -35,7 +35,7 @@ export const Ticket = ({ date, ticketId, hoursFormatted, store, subject }) => {
   const handleCommit = ({ ticketId, event }) => {
     event.stopPropagation();
 
-    const text = `git add . && git commit -m '${subject} - Chamado ${ticketId}' && git push`;
+    const text = `git add . && git commit -m '${subject} - Chamado ${ticketId}'`;
     navigator.clipboard.writeText(text);
     setCommit(true);
     setTimeout(setCommit, 1000, false);
@@ -48,8 +48,8 @@ export const Ticket = ({ date, ticketId, hoursFormatted, store, subject }) => {
     : commit
     ? 'Commit copiado com sucesso'
     : formatDate(date);
-    
-  const hoursTicket = Number(hoursFormatted) > 0 ? hoursFormatted : '';
+
+  const hoursTicket = hours ? hours : '0';
 
   return (
     <S.Container status={status} copied={copy} committed={commit} onClick={() => handleCopy(ticketId)}>

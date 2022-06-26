@@ -14,12 +14,13 @@ export const Title = styled.h1`
   margin: 0;
   color: ${({ theme }) => theme.colors.accent};
   margin-left: 4%;
+  margin-top: 24px;
 `;
 
 export const Content = styled.div`
   margin: 0 4%;
   margin-top: 24px;
   width: calc(100% - 8%);
-  height: calc(100% - 60px);
+  height: calc(100% - 110px);
   display: flex;
 `;

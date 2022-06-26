@@ -111,8 +111,8 @@ export const Hours = styled.label`
   font-size: 12px;
   font-weight: 600;
   margin-left: 18px;
-  width: 40px;
-  max-width: 40px;
+  width: 84px;
+  max-width: 84px;
   text-align: center;
   @media (max-width: 700px) {
     margin-left: 12px;
@@ -161,3 +161,12 @@ export const List = styled.ul`
   list-style: none;
   margin-right: 16px;
 `;
+
+export const NoTicket = styled.span`
+display: block;
+width: 100%;
+text-align: center;
+margin-top: 32px;
+font-size: 14px;
+    color: #111725;
+`

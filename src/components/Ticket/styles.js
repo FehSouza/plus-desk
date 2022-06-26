@@ -169,8 +169,8 @@ export const NumberTicket = styled.span`
 
 export const HoursTicket = styled.span`
   transition-duration: 750ms;
-  min-width: 40px;
-  max-width: 40px;
+  min-width: 84px;
+  max-width: 84px;
   text-align: center;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
