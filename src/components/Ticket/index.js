@@ -21,7 +21,7 @@ const verifyDate = (date) => {
   return 'past';
 };
 
-export const Ticket = ({ date, ticketId, hours, store, subject }) => {
+export const Ticket = ({ date, finalDate, ticketId, hours, store, subject }) => {
   const [copy, setCopy] = useState(false);
   const [commit, setCommit] = useState(false);
 
@@ -55,7 +55,7 @@ export const Ticket = ({ date, ticketId, hours, store, subject }) => {
       </S.ContainerCopied>
 
       <S.DotTicket status={status} />
-      <S.DateTicket>{formatDate(date)}</S.DateTicket>
+      <S.DateTicket>{formatDate(date ?? finalDate)}</S.DateTicket>
       <S.NumberTicket>{ticketId}</S.NumberTicket>
       <S.HoursTicket>{hoursTicket}</S.HoursTicket>
       <S.StoreTicket>{store}</S.StoreTicket>

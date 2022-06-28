@@ -40,7 +40,6 @@ export const TicketsList = ({ collaboratorId }) => {
         rows.map(async (ticket) => {
           const date = ticket.due_date;
           const ticketId = ticket.ticket_id;
-
           const hoursUpgrade = ticket[360023257414];
           const hoursFix = ticket[1500004574582];
           const hoursDesign = ticket[4800738993303];
@@ -58,7 +57,7 @@ export const TicketsList = ({ collaboratorId }) => {
           const subject = ticket.subject;
           const ticketInfo = await getTicketsInfo(ticketId);
           const finalDate = ticketInfo.fields.find((field) => field.id === 360023273873);
-          const finalDateFormatted = finalDate.value + 'T15:00:00Z';
+          const finalDateFormatted = finalDate.value ? finalDate.value + 'T15:00:00Z' : finalDate.value;
 
           return {
             date,
@@ -72,16 +71,18 @@ export const TicketsList = ({ collaboratorId }) => {
       );
       setTickets(
         ticketsList.sort((a, b) => {
-          if (new Date(a.date) > new Date(b.date)) return 1;
-          if (new Date(a.date) < new Date(b.date)) return -1;
           if (new Date(a.finalDateFormatted) > new Date(b.finalDateFormatted)) return 1;
           if (new Date(a.finalDateFormatted) < new Date(b.finalDateFormatted)) return -1;
+          if (new Date(a.date) > new Date(b.date)) return 1;
+          if (new Date(a.date) < new Date(b.date)) return -1;
           return 0;
         })
       );
     };
     if (collaboratorId) requestInfo(collaboratorId);
   }, [collaboratorId]);
+
+  console.log(tickets)
 
   const handleSearch = (event) => setSearch(event.target.value);
 
@@ -119,6 +120,7 @@ export const TicketsList = ({ collaboratorId }) => {
               <Ticket
                 key={ticket.ticketId}
                 date={ticket.date}
+                finalDate={ticket.finalDateFormatted}
                 ticketId={ticket.ticketId}
                 hours={ticket.hours}
                 store={ticket.store}
