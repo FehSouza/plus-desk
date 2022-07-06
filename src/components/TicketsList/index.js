@@ -82,8 +82,6 @@ export const TicketsList = ({ collaboratorId }) => {
     if (collaboratorId) requestInfo(collaboratorId);
   }, [collaboratorId]);
 
-  console.log(tickets)
-
   const handleSearch = (event) => setSearch(event.target.value);
 
   const filterSearch = tickets.filter(
@@ -100,7 +98,7 @@ export const TicketsList = ({ collaboratorId }) => {
         <S.SearchButton>
           <FaSearch />
         </S.SearchButton>
-        <S.SearchInput value={search} onChange={handleSearch} placeholder="Digite sua pesquisa aqui..." />
+        <S.SearchInput value={search} onChange={handleSearch} placeholder="Digite sua pesquisa aqui" />
       </S.SearchWrapper>
       <S.Labels>
         <S.Date>Data</S.Date>
