@@ -35,7 +35,7 @@ export const Ticket = ({ date, finalDate, ticketId, hours, store, subject }) => 
   const handleCommit = ({ ticketId, event }) => {
     event.stopPropagation();
 
-    const text = `git add . && git commit -m '${subject} - Chamado ${ticketId}'`;
+    const text = `git add . && git commit -m '${subject} - Chamado ${ticketId}' && git push`;
     navigator.clipboard.writeText(text);
     setCommit(true);
     setTimeout(setCommit, 1250, false);

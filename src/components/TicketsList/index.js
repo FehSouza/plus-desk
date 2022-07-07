@@ -4,8 +4,7 @@ import { FaSearch } from 'react-icons/fa';
 import { Ticket } from '../index';
 import * as S from './styles';
 
-export const TicketsList = ({ collaboratorId }) => {
-  const [tickets, setTickets] = useState([]);
+export const TicketsList = ({ collaboratorId, tickets, setTickets }) => {
   const [search, setSearch] = useState('');
 
   const getTickets = async (collaborator) => {
@@ -80,7 +79,7 @@ export const TicketsList = ({ collaboratorId }) => {
       );
     };
     if (collaboratorId) requestInfo(collaboratorId);
-  }, [collaboratorId]);
+  }, [collaboratorId, setTickets]);
 
   const handleSearch = (event) => setSearch(event.target.value);
 
