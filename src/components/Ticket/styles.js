@@ -22,30 +22,37 @@ export const Container = styled.li.attrs({ tabIndex: 0 })`
   flex-wrap: wrap;
   position: relative;
   outline: none;
+
   & svg {
     font-size: 0;
   }
+
   &:hover {
     background-color: ${({ theme }) => theme.colors.neutralLight};
-    transition-duration: 250ms;
+    transition-duration: 350ms;
     cursor: pointer;
+
     & svg {
       font-size: 18px;
       color: ${({ theme }) => theme.colors.primary};
-      transition-duration: 250ms;
+      transition-duration: 350ms;
     }
   }
+
   &:focus {
     background-color: ${({ theme }) => theme.colors.neutralLight};
-    transition-duration: 250ms;
+    transition-duration: 350ms;
+
     & svg {
       font-size: 18px;
       color: ${({ theme }) => theme.colors.primary};
-      transition-duration: 250ms;
+      transition-duration: 350ms;
     }
   }
+
   @media (max-width: 700px) {
     background-color: ${({ theme, status }) => theme.colors[statusColors[status]]}30;
+
     &:hover {
       background-color: ${({ theme, status }) => theme.colors[statusColors[status]]}60;
     }
@@ -60,6 +67,7 @@ export const DotTicket = styled.div`
   border-radius: 100%;
   margin-right: 12px;
   background-color: ${({ theme, status }) => theme.colors[statusColors[status]]};
+
   @media (max-width: 700px) {
     margin-right: 0px;
     width: 0px;
@@ -73,6 +81,7 @@ export const DateTicket = styled.span`
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: 18px;
+
   @media (max-width: 700px) {
     margin-right: 12px;
   }
@@ -85,6 +94,7 @@ export const NumberTicket = styled.span`
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: 18px;
+
   @media (max-width: 700px) {
     margin-right: 12px;
   }
@@ -98,6 +108,7 @@ export const HoursTicket = styled.span`
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: 18px;
+
   @media (max-width: 700px) {
     margin-right: 12px;
   }
@@ -110,6 +121,7 @@ export const StoreTicket = styled.span`
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
   margin-right: 18px;
+
   @media (max-width: 700px) {
     margin-right: 12px;
   }
@@ -133,11 +145,12 @@ export const CopyButton = styled.div`
   height: 100%;
   position: absolute;
   right: 40px;
+
   @media (max-width: 500px) {
     & svg {
       font-size: 18px;
       color: ${({ theme }) => theme.colors.neutral};
-      transition-duration: 250ms;
+      transition-duration: 350ms;
     }
   }
 `;
@@ -151,11 +164,12 @@ export const GitCommitButton = styled.div`
   height: 100%;
   position: absolute;
   right: 12px;
+
   @media (max-width: 500px) {
     & svg {
       font-size: 18px;
       color: ${({ theme }) => theme.colors.neutral};
-      transition-duration: 250ms;
+      transition-duration: 350ms;
     }
   }
 `;
@@ -174,9 +188,11 @@ export const ContainerCopied = styled.div`
   padding: 12px;
   box-sizing: border-box;
   margin-left: -12px;
+
   & svg {
     color: ${({ theme }) => theme.colors.white};
   }
+
   &:hover {
     background-color: ${({ theme }) => theme.colors.success};
     & svg {

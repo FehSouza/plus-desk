@@ -3,26 +3,35 @@ import { IoIosArrowUp } from 'react-icons/io';
 import { CollaboratorSelectorList } from '../CollaboratorSelectorList/index.js';
 import * as S from './styles.js';
 
-export const CollaboratorSelector = ({ setCollaborator, collaborator }) => {
+export const CollaboratorSelector = ({ setCollaborator }) => {
   const [showListCollaborators, setShowListCollaborators] = useState(false);
+  const [valueSearch, setValueSearch] = useState('');
 
-  const handleSelectorCollaborator = () => setShowListCollaborators(!showListCollaborators);
+  const handleOpenCloseSelector = () => {
+    setShowListCollaborators(!showListCollaborators);
+    setValueSearch('');
+  };
 
   const handleChooseCollaborator = (name) => {
     setCollaborator(name);
-    handleSelectorCollaborator();
+    setValueSearch(name.name);
+    setShowListCollaborators(!showListCollaborators);
   };
 
-  const selectInputPlaceholder = collaborator.name ? collaborator.name : 'Selecione um colaborador';
+  const handleSearch = (event) => setValueSearch(event.target.value);
 
   return (
     <S.Container onClick={(e) => e.stopPropagation()}>
-      <S.SelectWrapper onClick={handleSelectorCollaborator}>
-        <S.SelectInput>{selectInputPlaceholder}</S.SelectInput>
+      <S.SelectWrapper onClick={handleOpenCloseSelector}>
+        <S.SelectInput onChange={handleSearch} placeholder="Selecione um colaborador" value={valueSearch} />
         <IoIosArrowUp />
       </S.SelectWrapper>
       {showListCollaborators && (
-        <CollaboratorSelectorList onClickOption={handleChooseCollaborator} onCLickClose={handleSelectorCollaborator} />
+        <CollaboratorSelectorList
+          valueSearch={valueSearch}
+          onClickOption={handleChooseCollaborator}
+          onCLickClose={handleOpenCloseSelector}
+        />
       )}
     </S.Container>
   );

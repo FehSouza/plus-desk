@@ -16,7 +16,7 @@ export const Home = () => {
         <S.Title>{nameCollaborator}</S.Title>
         {tickets.length ? <S.NumberTickets>{numberOfTickets}</S.NumberTickets> : <></>}
       </S.Header>
-      <CollaboratorSelector collaborator={collaborator} setCollaborator={setCollaborator} />
+      <CollaboratorSelector setCollaborator={setCollaborator} />
       <S.Content>
         <TicketsList collaboratorId={collaborator.id} tickets={tickets} setTickets={setTickets} />
       </S.Content>

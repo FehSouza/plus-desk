@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const ListCollaborators = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const ListCollaborators = styled.div`
   width: 100%;
   max-height: 318px;
   overflow-y: auto;
-  box-shadow: 0px 0px 12px #00000066;
+  box-shadow: 0px 0px 12px #00000073;
   border: none;
   border-radius: 8px;
   background-color: ${({ theme }) => theme.colors.white};

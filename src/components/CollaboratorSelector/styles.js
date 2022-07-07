@@ -20,24 +20,32 @@ export const SelectWrapper = styled.div`
   width: 100%;
   border-radius: 8px;
   border: none;
-  border: ${({ theme, hide }) => (hide ? `1px solid ${theme.colors.primary}` : 'none')};
   font-size: 16px;
   color: ${({ theme }) => theme.colors.neutral};
   background-color: ${({ theme }) => theme.colors.neutralLight};
-  transition-duration: 250ms;
+  transition-duration: 350ms;
 
   & svg {
     padding: 0 16px;
-    transition-duration: 500ms;
-    transform: ${({ hide }) => (hide ? 'rotateX(0deg)' : 'rotateX(180deg)')};
+    transition-duration: 350ms;
+    transform: rotate(180deg);
   }
 
   &:hover {
     cursor: pointer;
   }
+
+  &:focus-within {
+    border: 1px solid ${({ theme }) => theme.colors.primary};
+
+    & svg {
+      transform: rotate(0deg);
+      color: ${({ theme }) => theme.colors.primary};
+    }
+  }
 `;
 
-export const SelectInput = styled.button`
+export const SelectInput = styled.input`
   flex: 1;
   height: 100%;
   background-color: transparent;
@@ -45,10 +53,14 @@ export const SelectInput = styled.button`
   padding: 0 16px;
   font-size: 16px;
   text-align: start;
-  color: ${({ theme }) => theme.colors.neutral};
+  color: ${({ theme }) => theme.colors.accent};
+  outline: none;
 
   &:hover {
     cursor: pointer;
   }
-`;
 
+  &::placeholder {
+    color: ${({ theme }) => theme.colors.neutral};
+  }
+`;

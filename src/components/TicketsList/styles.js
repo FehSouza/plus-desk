@@ -23,12 +23,14 @@ export const SearchWrapper = styled.div`
   justify-content: space-between;
   border: 1px solid ${({ theme }) => theme.colors.neutralLight};
   box-sizing: border-box;
+
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.colors.primary};
-    transition-duration: 250ms;
+    transition-duration: 350ms;
+
     & svg {
       color: ${({ theme }) => theme.colors.primary};
-      transition-duration: 250ms;
+      transition-duration: 350ms;
     }
   }
 `;
@@ -40,14 +42,17 @@ export const SearchButton = styled.button`
   padding: 0 16px;
   box-sizing: border-box;
   outline: none;
+
   & svg {
     color: ${({ theme }) => theme.colors.neutral};
     font-size: 18px;
+
     &:hover {
       cursor: pointer;
       color: ${({ theme }) => lighten(-0.15, theme.colors.primary)};
-      transition-duration: 250ms;
+      transition-duration: 350ms;
     }
+
     &:focus {
       color: ${({ theme }) => lighten(-0.15, theme.colors.primary)};
     }
@@ -62,6 +67,7 @@ export const SearchInput = styled.input`
   color: ${({ theme }) => theme.colors.accent};
   font-size: 16px;
   outline: none;
+
   &::placeholder {
     color: ${({ theme }) => theme.colors.neutral};
   }
@@ -73,6 +79,7 @@ export const Labels = styled.div`
   box-sizing: border-box;
   margin-top: 12px;
   align-items: center;
+
   @media (max-width: 600px) {
     margin-top: 0px;
   }
@@ -84,9 +91,11 @@ export const Date = styled.label`
   margin-left: 19px;
   width: 90px;
   max-width: 90px;
+
   @media (max-width: 700px) {
     margin-left: 0;
   }
+
   @media (max-width: 600px) {
     font-size: 0;
   }
@@ -99,9 +108,11 @@ export const Ticket = styled.label`
   width: 40px;
   max-width: 40px;
   text-align: center;
+
   @media (max-width: 700px) {
     margin-left: 12px;
   }
+
   @media (max-width: 600px) {
     font-size: 0;
   }
@@ -114,9 +125,11 @@ export const Hours = styled.label`
   width: 84px;
   max-width: 84px;
   text-align: center;
+
   @media (max-width: 700px) {
     margin-left: 12px;
   }
+
   @media (max-width: 600px) {
     font-size: 0;
   }
@@ -128,9 +141,11 @@ export const Store = styled.label`
   font-size: 12px;
   font-weight: 600;
   margin-left: 18px;
+
   @media (max-width: 700px) {
     margin-left: 12px;
   }
+
   @media (max-width: 600px) {
     font-size: 0;
   }
@@ -142,9 +157,11 @@ export const Subject = styled.label`
   font-size: 12px;
   font-weight: 600;
   margin-left: 18px;
+
   @media (max-width: 700px) {
     margin-left: 12px;
   }
+
   @media (max-width: 600px) {
     font-size: 0;
   }

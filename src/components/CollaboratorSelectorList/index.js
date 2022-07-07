@@ -29,7 +29,7 @@ const getCollaborator = async (collaborator) => {
   return data;
 };
 
-export const CollaboratorSelectorList = ({ onClickOption, onCLickClose }) => {
+export const CollaboratorSelectorList = ({ valueSearch, onClickOption, onCLickClose }) => {
   const [listCollaborators, setListCollaborators] = useState([]);
 
   useEffect(() => {
@@ -56,9 +56,13 @@ export const CollaboratorSelectorList = ({ onClickOption, onCLickClose }) => {
     return () => document.removeEventListener('click', onCLickClose);
   }, [onCLickClose]);
 
+  const filterSearch = listCollaborators.filter((collaborator) =>
+    collaborator.name.toLowerCase().includes(valueSearch.toLowerCase())
+  );
+
   return (
     <S.ListCollaborators>
-      {listCollaborators.map((name) => (
+      {filterSearch.map((name) => (
         <S.ItemCollaborator onClick={() => onClickOption(name)} key={name.id}>
           {name.name}
         </S.ItemCollaborator>
