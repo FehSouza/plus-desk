@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const ListCollaborators = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: min(100%, 900px);
   max-height: 318px;
   overflow-y: auto;
   box-shadow: 0px 0px 12px #00000073;

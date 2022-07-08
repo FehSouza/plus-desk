@@ -102,8 +102,8 @@ export const NumberTicket = styled.span`
 
 export const HoursTicket = styled.span`
   transition-duration: 750ms;
-  min-width: 84px;
-  max-width: 84px;
+  min-width: 124px;
+  max-width: 124px;
   text-align: center;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
@@ -128,8 +128,8 @@ export const StoreTicket = styled.span`
 `;
 
 export const SubjectTicket = styled.span`
-  min-width: 210px;
-  max-width: 210px;
+  min-width: 260px;
+  max-width: 260px;
   transition-duration: 750ms;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};

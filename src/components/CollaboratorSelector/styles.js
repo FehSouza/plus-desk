@@ -1,12 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+  margin: 0 4%;
   margin-top: 16px;
-  margin-left: 4%;
   display: flex;
-  align-items: center;
   height: 40px;
-  width: min(92%, 800px);
+  width: calc(100% - 8%);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -17,7 +16,7 @@ export const SelectWrapper = styled.div`
   justify-content: center;
   align-items: center;
   height: 100%;
-  width: 100%;
+  width: min(100%, 900px);
   border-radius: 8px;
   border: none;
   font-size: 16px;

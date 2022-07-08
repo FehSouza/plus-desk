@@ -2,7 +2,7 @@ import { lighten } from 'polished';
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  width: min(92%, 800px);
+  width: min(100%, 900px);
   height: 100%;
   box-shadow: 0 0 6px ${({ theme }) => theme.colors.shadow};
   border: none;
@@ -121,9 +121,9 @@ export const Ticket = styled.label`
 export const Hours = styled.label`
   font-size: 12px;
   font-weight: 600;
-  margin-left: 18px;
-  width: 84px;
-  max-width: 84px;
+  margin: 18px;
+  width: 124px;
+  max-width: 124px;
   text-align: center;
 
   @media (max-width: 700px) {
@@ -140,7 +140,6 @@ export const Store = styled.label`
   max-width: 160px;
   font-size: 12px;
   font-weight: 600;
-  margin-left: 18px;
 
   @media (max-width: 700px) {
     margin-left: 12px;
@@ -152,8 +151,8 @@ export const Store = styled.label`
 `;
 
 export const Subject = styled.label`
-  width: 220px;
-  max-width: 220px;
+  width: 260px;
+  max-width: 260px;
   font-size: 12px;
   font-weight: 600;
   margin-left: 18px;
@@ -172,14 +171,14 @@ export const List = styled.ul`
   padding: 0;
   width: 100%;
   padding-bottom: 16px;
-  max-height: calc(100% - 94px);
+  max-height: calc(100% - 130px);
   overflow-y: auto;
   box-sizing: border-box;
   list-style: none;
   margin-right: 16px;
 
   @media (max-width: 600px) {
-    max-height: calc(100% - 64px);
+    max-height: calc(100% - 100px);
   }
 `;
 

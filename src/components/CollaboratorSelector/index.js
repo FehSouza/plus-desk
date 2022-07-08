@@ -3,11 +3,12 @@ import { IoIosArrowUp } from 'react-icons/io';
 import { CollaboratorSelectorList } from '../CollaboratorSelectorList/index.js';
 import * as S from './styles.js';
 
-export const CollaboratorSelector = ({ setCollaborator }) => {
+export const CollaboratorSelector = ({ listCollaborators, setCollaborator }) => {
   const [showListCollaborators, setShowListCollaborators] = useState(false);
   const [valueSearch, setValueSearch] = useState('');
 
   const handleOpenCloseSelector = () => {
+    
     setShowListCollaborators(!showListCollaborators);
     setValueSearch('');
   };
@@ -28,6 +29,7 @@ export const CollaboratorSelector = ({ setCollaborator }) => {
       </S.SelectWrapper>
       {showListCollaborators && (
         <CollaboratorSelectorList
+          listCollaborators={listCollaborators}
           valueSearch={valueSearch}
           onClickOption={handleChooseCollaborator}
           onCLickClose={handleOpenCloseSelector}

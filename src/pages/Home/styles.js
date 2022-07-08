@@ -11,8 +11,8 @@ export const Container = styled.main`
 export const Header = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-left: 4%;
-  width: min(92%, 800px);
+  margin: 0 4%;
+  width: min(calc(100% - 8%), 900px);
 `;
 
 export const Title = styled.h1`

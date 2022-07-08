@@ -36,7 +36,7 @@ export const TicketsList = ({ collaboratorId, tickets, setTickets }) => {
       const { rows, users } = await getTickets(collaboratorId);
 
       const ticketsList = await Promise.all(
-        rows.map(async (ticket) => {
+        rows.slice(0, 30).map(async (ticket) => {
           const date = ticket.due_date;
           const ticketId = ticket.ticket_id;
           const hoursUpgrade = ticket[360023257414];
