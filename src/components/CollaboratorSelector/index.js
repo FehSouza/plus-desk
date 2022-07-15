@@ -8,7 +8,6 @@ export const CollaboratorSelector = ({ listCollaborators, setCollaborator }) => 
   const [valueSearch, setValueSearch] = useState('');
 
   const handleOpenCloseSelector = () => {
-    
     setShowListCollaborators(!showListCollaborators);
     setValueSearch('');
   };

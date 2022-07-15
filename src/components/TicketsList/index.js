@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
 import { Ticket } from '../index';
 import * as S from './styles';
@@ -31,8 +31,8 @@ export const TicketsList = ({ collaboratorId, tickets, setTickets }) => {
     return data.ticket;
   };
 
-  useEffect(() => {
-    const requestInfo = async (collaboratorId) => {
+  const requestInfo = useCallback(
+    async (collaboratorId) => {
       const { rows, users } = await getTickets(collaboratorId);
 
       const ticketsList = await Promise.all(
@@ -77,9 +77,22 @@ export const TicketsList = ({ collaboratorId, tickets, setTickets }) => {
           return 0;
         })
       );
+    },
+    [setTickets]
+  );
+
+  useEffect(() => {
+    const onChangeVisibility = () => {
+      if (!document.hidden && collaboratorId) requestInfo(collaboratorId);
     };
+
+    document.addEventListener('visibilitychange', onChangeVisibility);
+    return () => document.removeEventListener('visibilitychange', onChangeVisibility);
+  }, [collaboratorId, requestInfo]);
+
+  useEffect(() => {
     if (collaboratorId) requestInfo(collaboratorId);
-  }, [collaboratorId, setTickets]);
+  }, [collaboratorId, setTickets, requestInfo]);
 
   const handleSearch = (event) => setSearch(event.target.value);
 
@@ -90,6 +103,8 @@ export const TicketsList = ({ collaboratorId, tickets, setTickets }) => {
       ticket.store.toLowerCase()?.includes(search.toLowerCase()) ||
       ticket.subject.toLowerCase()?.includes(search.toLowerCase())
   );
+
+  const showTickets = !!tickets.length;
 
   return (
     <S.Container>
@@ -107,11 +122,8 @@ export const TicketsList = ({ collaboratorId, tickets, setTickets }) => {
         <S.Subject>Assunto</S.Subject>
       </S.Labels>
       <S.List>
-        {collaboratorId === undefined || collaboratorId === null ? (
-          <S.NoTicket>Nenhum colaborador foi selecionado.</S.NoTicket>
-        ) : tickets.length === 0 ? (
-          <S.NoTicket>Não há tickets pendentes.</S.NoTicket>
-        ) : (
+        {collaboratorId &&
+          showTickets &&
           filterSearch.map((ticket) => {
             return (
               <Ticket
@@ -124,8 +136,10 @@ export const TicketsList = ({ collaboratorId, tickets, setTickets }) => {
                 subject={ticket.subject}
               ></Ticket>
             );
-          })
-        )}
+          })}
+
+        {collaboratorId && !showTickets && <S.NoTicket>Não há tickets pendentes.</S.NoTicket>}
+        {!collaboratorId && <S.NoTicket>Nenhum colaborador foi selecionado.</S.NoTicket>}
       </S.List>
     </S.Container>
   );
