@@ -11,8 +11,9 @@ export const TicketsList = ({ collaboratorId, tickets, setTickets }) => {
     const { data } = await axios.get(
       `https://agenciaeplus.zendesk.com/api/v2/views/${collaborator}/execute.json?per_page=30&page=1&sort_by=due_date&sort_order=asc&group_by=%20&include=via_id&exclude=sla_next_breach_at%2Clast_comment`,
       {
-        headers: {
-          Authorization: process.env.REACT_APP_TOKEN,
+        auth: {
+          username: process.env.REACT_APP_USERNAME,
+          password: process.env.REACT_APP_PASSWORD,
         },
       }
     );
@@ -23,8 +24,9 @@ export const TicketsList = ({ collaboratorId, tickets, setTickets }) => {
     const { data } = await axios.get(
       `https://agenciaeplus.zendesk.com/api/v2/tickets/${ticket}?include=brands%2Cpermissions%2Cusers%2Cgroups%2Corganizations%2Csharing_agreements%2Cincident_counts%2Ctde_workspace%2Cslas`,
       {
-        headers: {
-          Authorization: process.env.REACT_APP_TOKEN,
+        auth: {
+          username: process.env.REACT_APP_USERNAME,
+          password: process.env.REACT_APP_PASSWORD,
         },
       }
     );
