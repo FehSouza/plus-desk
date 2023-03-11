@@ -60,6 +60,8 @@ export const Home = () => {
   const numberOfTickets = tickets.length === 1 ? `(1 ticket)` : `(${tickets.length} tickets)`;
 
   const acumulateHours = tickets.reduce((acc, ticket) => {
+    if (!ticket.hours) return acc + 0;
+
     const hours = ticket.hours.split(' ');
     if (hours.length === 1) {
       return acc + Number(hours[0]);
