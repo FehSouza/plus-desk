@@ -128,8 +128,8 @@ export const StoreTicket = styled.span`
 `;
 
 export const SubjectTicket = styled.span`
-  min-width: 260px;
-  max-width: 260px;
+  min-width: 220px;
+  max-width: 220px;
   transition-duration: 750ms;
   font-size: 14px;
   color: ${({ theme }) => theme.colors.accent};
@@ -145,6 +145,25 @@ export const CopyButton = styled.div`
   height: 100%;
   position: absolute;
   right: 40px;
+
+  @media (max-width: 500px) {
+    & svg {
+      font-size: 18px;
+      color: ${({ theme }) => theme.colors.neutral};
+      transition-duration: 350ms;
+    }
+  }
+`;
+
+export const OpenLink = styled.div`
+  background-color: transparent;
+  padding: 0;
+  border: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: absolute;
+  right: 68px;
 
   @media (max-width: 500px) {
     & svg {

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { FaCheck } from 'react-icons/fa';
 import { GoGitCommit } from 'react-icons/go';
-import { MdOutlineContentCopy } from 'react-icons/md';
+import { MdOutlineContentCopy, MdLink } from 'react-icons/md';
 import { formatDate } from '../../utils';
 import * as S from './styles';
 
@@ -32,6 +32,12 @@ export const Ticket = ({ date, finalDate, ticketId, hours, store, subject }) => 
     setTimeout(setCopy, 1250, false);
   };
 
+  const openUrl = async ({ ticketId }) => {
+    const url = `https://agenciaeplus.zendesk.com/agent/tickets/${ticketId}`;
+    await window.open(url, '_blank');
+    setCopy(null);
+  };
+
   const handleCommit = ({ ticketId, event }) => {
     event.stopPropagation();
 
@@ -50,7 +56,7 @@ export const Ticket = ({ date, finalDate, ticketId, hours, store, subject }) => 
   return (
     <S.Container status={status} onClick={() => handleCopy(ticketId)}>
       <S.ContainerCopied copied={copy} committed={commit}>
-        <S.CopiedText>{textDateTicket}</S.CopiedText>
+        <S.CopiedText>{copy !== null && textDateTicket}</S.CopiedText>
         <FaCheck />
       </S.ContainerCopied>
 
@@ -60,6 +66,7 @@ export const Ticket = ({ date, finalDate, ticketId, hours, store, subject }) => 
       <S.HoursTicket>{hoursTicket}</S.HoursTicket>
       <S.StoreTicket>{store}</S.StoreTicket>
       <S.SubjectTicket>{subject}</S.SubjectTicket>
+      <S.OpenLink onClick={(event) => openUrl({ ticketId })}>{<MdLink />}</S.OpenLink>
       <S.CopyButton>{<MdOutlineContentCopy />}</S.CopyButton>
       <S.GitCommitButton onClick={(event) => handleCommit({ ticketId, event })}>{<GoGitCommit />}</S.GitCommitButton>
     </S.Container>
